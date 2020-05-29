@@ -87,7 +87,9 @@ const concurrently = async (promises) => {
 };
 ```
 
-## Create a makeCalculator function that that can be used to create several calculator objects with an add, subtract, divide, and multiply methods. Add a print method to console log the running total at any time.
+## Create a makeCalculator function
+
+It can be used to create several calculator objects with an add, subtract, divide, and multiply methods. Add a print method to console log the running total at any time.
 
 ### Answer
 
