@@ -8,7 +8,7 @@
 
 A list of JavaScript interview questions and small coding challenges to help frontend engineers prepare for technical interviews
 
-## Given an array of strings, create a function to return an array of unique strings.
+## Given an array of strings, create a function that returns an array of unique strings.
 
 Example:
 
@@ -38,7 +38,7 @@ const unique = (list) => {
 };
 ```
 
-Using an object store the array values as object keys
+Using an object, store the array values as object keys
 
 (duplicate keys aren't allowed so need to check if it already exists)
 
@@ -58,11 +58,11 @@ Using a Set. Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaS
 const unique = (list) => Array.from(new Set(list));
 ```
 
-## Resolve array of promises (promise functions) in sequential order
+## Resolve an array of promises (promise functions) in sequential order
 
 ### Answer
 
-Using async await and a for of loop you can execute these promise functions sequentially
+Using `async` `await` and a `for of` loop you can execute these promise functions sequentially
 
 ```js
 const sequential = async (promises) => {
@@ -72,11 +72,11 @@ const sequential = async (promises) => {
 };
 ```
 
-## Resolve array of promises (promise functions) concurrently
+## Resolve an array of promises (promise functions) concurrently
 
 ### Answer
 
-Using Promise.all you execute these promise functions concurrently. Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+Using `Promise.all` you execute these promise functions concurrently. Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 
 await used here assuming there is more to execute after promises are resolved
 
@@ -158,5 +158,6 @@ const reverse = (string) => {
     result[i] = string[string.length - i - 1];
     result[string.length - i - 1] = string[i];
   }
+  return result.join('');
 };
 ```
