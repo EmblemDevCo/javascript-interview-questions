@@ -124,3 +124,39 @@ calculator.subtract(2);
 calculator.multiply(4);
 calculator.print(); // 12
 ```
+
+## Create function to reverse a string
+
+### Answer
+
+Using a combination of string and array methods you can do this simply.
+
+(first turn the string into an array with `split` then reverse the order of the array with `reverse` then turn the array back into a string with `join`)
+
+```js
+const reverse = (word) => word.split('').reverse().join('');
+```
+
+You may also be asked to create this function without the use of string and array methods. You can do this using a for loop.
+
+```js
+const reverse = (string) => {
+  let result = [];
+  for (const letter of string) {
+    result.unshift(letter);
+  }
+  return result.join('');
+};
+```
+
+This function can be more efficient, we can cut the number of iterations in half.
+
+```js
+const reverse = (string) => {
+  result = [];
+  for (let i = 0; i < string.length / 2; i++) {
+    result[i] = string[string.length - i - 1];
+    result[string.length - i - 1] = string[i];
+  }
+};
+```
