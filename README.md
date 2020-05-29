@@ -38,9 +38,9 @@ const unique = (list) => {
 };
 ```
 
-Using an object store the array values as object key
+Using an object store the array values as object keys
 
-(duplicate keys arne't allowed so need to check if it already exists)
+(duplicate keys aren't allowed so need to check if it already exists)
 
 ```js
 const unique = (list) => {
@@ -85,4 +85,40 @@ const concurrently = async (promises) => {
   await Promise.all(promises.map((fn) => fn()));
   ...
 };
+```
+
+## Create a makeCalculator function that that can be used to create several calculator objects with an add, subtract, divide, and multiply methods. Add a print method to console log the running total at any time.
+
+### Answer
+
+Using closures you can create a function that returns an objects with methods that have access to its surrounding state. Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+
+```js
+const makeCalcuator = () => {
+  let total = 0;
+
+  return {
+    multiply(x) {
+      return (total *= x);
+    },
+    dvide(x) {
+      return (total /= x);
+    },
+    add(x) {
+      return (total += x);
+    },
+    subtract(x) {
+      return (total -= x);
+    },
+    print() {
+      console.log(total);
+    },
+  };
+};
+
+const calculator = makeCalcuator();
+calculator.add(5);
+calculator.subtract(2);
+calculator.multiply(4);
+calculator.print(); // 12
 ```
