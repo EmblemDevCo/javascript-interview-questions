@@ -125,6 +125,31 @@ calculator.multiply(4);
 calculator.print(); // 12
 ```
 
+## Given an array of numbers, return the sum of all odd numbers
+
+Example:
+
+```js
+const nums = [3, 23, 42, 20, 67, 48, 31, 7, 92];
+sumOfOdds(nums) -> // 131
+```
+
+### Answer
+
+You can use the Array reduce method to reduce the array values into a single value. Read more [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce).
+
+In the reduce method you will want to check if the number is even using the modulus operator.
+
+```js
+const sumOfOdds = (nums) =>
+  nums.reduce((acc, curr) => {
+    if (curr % 2 !== 0) {
+      acc += curr;
+    }
+    return acc;
+  }, 0);
+```
+
 ## Create function to reverse a string
 
 ### Answer
