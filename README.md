@@ -186,3 +186,92 @@ const reverse = (string) => {
   return result.join('');
 };
 ```
+
+## Spin Words
+
+Write a function that takes in a string of one or more words, and returns the same string, but with all five or more letter words reversed (Just like the name of this Kata). Strings passed in will consist of only letters and spaces. Spaces will be included only when more than one word is present.
+
+Examples: spinWords( "Hey fellow warriors" ) => returns "Hey wollef sroirraw" spinWords( "This is a test") => returns "This is a test" spinWords( "This is another test" )=> returns "This is rehtona test"
+
+### Answer
+
+To accomplish this you want to split the initial string into an array of words. Splitting on the space. Then, you want to map over all of words and reverse any word that has a length greater than or equal to five.
+
+```js
+const spinWords = (string) => {
+  const list = string.split(' ');
+  return list
+    .map((word) =>
+      word.length >= 5 ? word.split('').reverse('').join('') : word
+    )
+    .join(' ');
+};
+```
+
+## Square Every Digit
+
+Write a function that squares every digit of a number.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+Note: The function accepts an integer and returns an integer
+
+### Answer
+
+To accomplish this you want to split the initial string into an array of words. Splitting on the space. Then, you want to map over all of words and reverse any word that has a length greater than or equal to five.
+
+```js
+const squareDigits = (num) =>
+  parseInt(
+    `${num}`
+      .split('')
+      .map((x) => `${Math.pow(parseInt(x, 10), 2)}`)
+      .join(''),
+    10
+  );
+```
+
+## Find the Outlier
+
+You are given an array (which will have a length of at least 3, but could be very large) containing integers. The array is either entirely comprised of odd integers or entirely comprised of even integers except for a single integer N. Write a method that takes the array as an argument and returns this "outlier" N.
+
+Examples
+
+```js
+[2, 4, 0, 100, 4, 11, 2602, 36][
+  // Should return: 11 (the only odd number)
+
+  (160, 3, 1719, 19, 11, 13, -21)
+];
+// Should return: 160 (the only even number)
+```
+
+### Answer
+
+This answer is a little more "wordy" than other ones. I like doing this with a regular for loop because I can check if I have the answer already before I am done looping through the entire array. For instance, if there are 50 items in the array and the outlier is at position 3, this solution would only need 3 iterations.
+
+We will check each number as loop through the array of integers to and place the number in the appropriate odd or even array.
+
+At the end of the loop we check the length of both arrays, if one array has more than 2 items, and the other array has an item, we return that item.
+
+```js
+const findOutlier = (integers) => {
+  const odd = [];
+  const even = [];
+  for (let i = 0; i < integers.length; i++) {
+    if (integers[i] % 2) {
+      odd.push(integers[i]);
+    } else {
+      even.push(integers[i]);
+    }
+
+    if (odd.length > 1 && even.length) {
+      return even[0];
+    }
+
+    if (even.length > 1 && odd.length) {
+      return odd[0];
+    }
+  }
+};
+```
