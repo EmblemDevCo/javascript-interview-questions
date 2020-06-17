@@ -238,11 +238,11 @@ You are given an array (which will have a length of at least 3, but could be ver
 Examples
 
 ```js
-[2, 4, 0, 100, 4, 11, 2602, 36][
-  // Should return: 11 (the only odd number)
+findOutlier([2, 4, 0, 100, 4, 11, 2602, 36]);
+// Should return: 11 (the only odd number)
 
-  (160, 3, 1719, 19, 11, 13, -21)
-];
+findOutlier([160, 3, 1719, 19, 11, 13, -21]);
+
 // Should return: 160 (the only even number)
 ```
 
@@ -274,4 +274,22 @@ const findOutlier = (integers) => {
     }
   }
 };
+```
+
+## Flatten 2 dimensional array
+
+Given a multidemnional array, create a function to flatten the array into a one dimensional array.
+
+```js
+const myArray = [[1], [2, 3], [4, 5, 6], [7, 8, 9, 10]];
+flatten(myArray);
+// Should return: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+### Answer
+
+The `concat()` method is used to merge two **or more** arrays. Concat can take 1 on more arrays as it's arguments. In combination with the spread operator, where we are expanding the items of the array (other arrays in this case), we merge the empty array (concat is an array method) with the inner arrays of myArray. Learn more about `concat()` [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat). Learn more about `Spread syntax` [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
+
+```js
+const flatten = (array) => [].concat(...array);
 ```
