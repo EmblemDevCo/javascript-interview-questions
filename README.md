@@ -293,3 +293,11 @@ The `concat()` method is used to merge two **or more** arrays. Concat can take 1
 ```js
 const flatten = (array) => [].concat(...array);
 ```
+
+You can also use the `flat()` method. The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth. Learn more about it [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
+
+```js
+const myArray = [[1], [2, 3], [4, 5, 6], [7, 8, 9, 10]];
+myArray.flat();
+// returns -> [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
